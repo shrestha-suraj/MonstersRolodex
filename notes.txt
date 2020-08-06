@@ -24,7 +24,7 @@ babel and webpack
 -----------------
 ->  Babel makes sure that all our React code runs on the browser with no errors.
 ->  Webpack is a module bundler. It allows us to write modular code.
--> React has a team of highly skilled developers who develop and update this files for us.
+->  React has a team of highly skilled developers who develop and update this files for us.
 
 import React from 'react';
 --------------------------
@@ -37,3 +37,71 @@ ReactDOM.render(<App/>,document.getElementById("root"));
 ->  The little robot from our previous lecture.
 ->  The codebase that modifies the DOM for us. (This robot is different for different frameworks.)
 ->  It takes the components from App and then injects the code to the "root" div of index.html
+
+
+Q:  Why do we need unique key for the each component we return from a map function in JSX?
+=>  React needs to know what element it needs to update if any of the elements change on the state.
+    This makes React smart enough to re-render only the first component rather than the whole map
+    elements used in the JSX by identifying the one component to change out of many with similar data.
+
+
+import {Component} from 'react'
+class App extends Component: What is this Component?
+----------------------------------------------------
+->  extends me to acquire properties of the parent
+->  App is saying: Hey, I want all the functionality of this Component class and add my methods as well.
+->  Compnents already have some important methods on them. The render() method is also part of the Component
+    we override it with our method data.
+
+
+(Life Cycle methods)
+------------------
+->  Methods that are called at different stages when the included component is rendered.
+$ componentDidMount-> Method that runs after the render method finishes creating the comonent
+
+
+
+===================================================================================================
+-------------------------------------------Key Points----------------------------------------------
+#   JSX is JavaScript Expression
+#   React is based on unidirectional data flow and hence we use setState() method to set the state
+    without modifying it directly which is a security issue as well as violation of unidirectional.
+#   When state changes, the component is re-rendered.
+#   React uses lego block development approach where the UI is divided into multiple small reyusable
+    components.
+#   JSON data for practice: https://jsonplaceholder.typicode.com/users
+#   JSON data form images: https://robohash.org/N?set=set2?size=AxA  here N is changing number any random
+                                                                     A is size value ex: 180x180
+#   React allows the development of single page application. This means whenever we request the website
+    from the backend. We get the whole React app. Then if we perform events like click an anchor tag for
+    different page, the only thing happening is that ReactDOM is manipulation our browser DOM without
+    talking to the backend. This made a way for frontend to only talk with backend when data is required.
+    Hence, the trend of RESTful API is used as now it doesnot mean we need to get data from only our server.
+    We can get data from other servers too for development purpose.
+
+#   jsx and js files are same. It is just naming preferance. If there is Javascript expression involved
+    in a component, name it jsx. This will remove confusion from any js file that has simple logics like
+    API calls and stuffs.
+    Also have package type namimg convention.
+    Example: If there is (card.jsx and card.css name them: card.component.jsx and card.styles.css)
+
+
+
+
+
+=========================================================================================================
+--------------------------------------REACT CODE NOTES----------------------------------------------------
+
+# <Header name="test">Nepal</Header>   => accessing props.childern gives Nepal
+# componentDidMount(){}  Example of a LifeCycle Method
+# onClick(), onChange(), etc. are called SyntheticEvent. They are JSX.
+  SyntheticEvent is a fake DOM event, that stops the actual event and tells the JSX
+  that something changed on the DOM such that appropriate functionality can be accessed
+# const {monsters,searchField}=this.state;
+  This is similar to: const monster=this.state.monster and const searchField=this.state.searchField
+# filter() method returns each object if the function reutnr true
+  includes() method check if the provided data includes the parts sent as parameters
+
+# Regular function has its own context and hence it requires to bind (this) when calling
+  any variables of Component level where as arrow function allows this to be the context of
+  the Coponent level.
