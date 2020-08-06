@@ -1,0 +1,39 @@
+package.json
+------------
+->  Dependencies holds the information about the porject dependent files that can be installed
+    with npm install command.
+->  devDependencies holds the information about the project dependent files for development 
+    purpose only. When built version is released, react doesnot download dependencies for this
+    file.
+->  scripts holds all the running commands for the react project.
+    React hides everything behind the scence such that we can easily develop and deploy apps.
+    scripts
+    -------
+    start:  This script allows us to start the project in development mode and load it in the
+            live server. Usually, the preferred port is 3000.
+    build:  This script is to create optimized production built of our code using Babel and Webpack. The 
+            code is compressed in like a min.js file. All css, js are compressed.
+            This creates a build folder in our application which is the one that needs to be deployed.
+    test:   This is used to test codes for our project.
+    eject:  This script is responside for ejecting all the underlying codebase of react such that
+            we can edit the core development files like babel and webpack.
+            There are developers getting paid to make the babel, webpack as better as possible.
+            Hence, ejecting the app and trying to work on it is not recommended.
+
+babel and webpack
+-----------------
+->  Babel makes sure that all our React code runs on the browser with no errors.
+->  Webpack is a module bundler. It allows us to write modular code.
+-> React has a team of highly skilled developers who develop and update this files for us.
+
+import React from 'react';
+--------------------------
+->  React allows us to write html like syntax in javascript file.
+-> And the framework understands this beacuse of the React module of react library.
+
+import ReactDOM from 'react';
+ReactDOM.render(<App/>,document.getElementById("root"));
+----------------------------
+->  The little robot from our previous lecture.
+->  The codebase that modifies the DOM for us. (This robot is different for different frameworks.)
+->  It takes the components from App and then injects the code to the "root" div of index.html
