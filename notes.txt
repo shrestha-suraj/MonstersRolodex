@@ -23,21 +23,26 @@ package.json
 babel and webpack
 -----------------
 ->  Babel makes sure that all our React code runs on the browser with no errors.
+->  Babel is a program that allows our js code to be backward compatible.
+        Thus, if an old browser or muliple browsers want to run our js file. Balel makes it possible.
+
 ->  Webpack is a module bundler. It allows us to write modular code.
+->  It manages our code so that we have to only worry about developing javascript codes while webpack
+    manages the folder structure
 ->  React has a team of highly skilled developers who develop and update this files for us.
 
 import React from 'react';
 --------------------------
-->  React allows us to write html like syntax in javascript file.
--> And the framework understands this beacuse of the React module of react library.
+->  When we import React to the project, the file is immediately identified as a jax file.
+->  React module allows us to write html like syntax in javascript file.
+->  And the framework understands this beacuse of the React module of react library.
 
 import ReactDOM from 'react';
 ReactDOM.render(<App/>,document.getElementById("root"));
-----------------------------
+--------------------------------------------------------
 ->  The little robot from our previous lecture.
 ->  The codebase that modifies the DOM for us. (This robot is different for different frameworks.)
 ->  It takes the components from App and then injects the code to the "root" div of index.html
-
 
 Q:  Why do we need unique key for the each component we return from a map function in JSX?
 =>  React needs to know what element it needs to update if any of the elements change on the state.
@@ -52,14 +57,23 @@ class App extends Component: What is this Component?
 ->  App is saying: Hey, I want all the functionality of this Component class and add my methods as well.
 ->  Compnents already have some important methods on them. The render() method is also part of the Component
     we override it with our method data.
+->  Besides this the Component also provides important variables and methods like: state and componentDidMount
 
 
 (Life Cycle methods)
 ------------------
 ->  Methods that are called at different stages when the included component is rendered.
-$ componentDidMount-> Method that runs after the render method finishes creating the comonent
-
-
+$ componentDidMount-> is executed after the first render only on the client side. 
+                      This is where AJAX requests and DOM or state updates should occur. 
+$ componentWillMount-> is executed before rendering, on both the server and the client side.
+$ componentWillReceiveProps-> is invoked as soon as the props are updated before another render is called.
+$ shouldComponentUpdate-> returns true or false value. This will determine if the component will be updated or not. 
+                          This is set to true by default. If you are sure that the component doesn't need to render 
+                          after state or props are updated, you can return false value.
+$ componentWillUpdate-> is called just before rendering (This happens just on the client side)
+                        This is triggered by state or pros change and calls this method before re-rendering            
+$ componentDidUpdate -> is called just after rendering.
+$ componentWillUnmount-> is called after the component is unmounted from the dom. We are unmounting our component in main.js.
 
 ===================================================================================================
 -------------------------------------------Key Points----------------------------------------------
@@ -67,7 +81,7 @@ $ componentDidMount-> Method that runs after the render method finishes creating
 #   React is based on unidirectional data flow and hence we use setState() method to set the state
     without modifying it directly which is a security issue as well as violation of unidirectional.
 #   When state changes, the component is re-rendered.
-#   React uses lego block development approach where the UI is divided into multiple small reyusable
+#   React uses lego block development approach where the UI is divided into multiple small reusable
     components.
 #   JSON data for practice: https://jsonplaceholder.typicode.com/users
 #   JSON data form images: https://robohash.org/N?set=set2?size=AxA  here N is changing number any random
@@ -103,5 +117,5 @@ $ componentDidMount-> Method that runs after the render method finishes creating
   includes() method check if the provided data includes the parts sent as parameters
 
 # Regular function has its own context and hence it requires to bind (this) when calling
-  any variables of Component level where as arrow function allows this to be the context of
-  the Coponent level.
+  any variables of Component level; where as arrow function allows this to be the context of
+  the Component level and doesnot have to bind this in the constructor.
