@@ -1,0 +1,18 @@
+yarn and npm both are good when it comes to managing packages. Yarn was developed by facebook when npm had some
+issues with their package manager. But there are some minor things that needs to be considered when it comes to
+picking one of these package manager.
+
+UPDATING PACKAGES
+-----------------
+Command: npm list package_name    where package_name can be react, react-dom, react-scripts and others
+         yarn list package_name
+
+If our packages are outdated then we can simply update it by adding ^ to the verison number in dependencies of
+of package.json file. After that we can run yarn install or npm update to install all the updated packages.
+This is same when it comes to yarn and npm. The difference arrises on fixing the vulnerabilities.
+
+When you use an app and it has vulnerabilities, it means that some package that your packages or your project is
+dependent upon has security issues. Hence, we need to update those packages as well. Now in npm we have this command
+called "npm audit fix" that tries to find the package creating vulnerability package and update it. But, yarn doesnot
+have this command. You can audit the problem by running "yarn audit" but we have to go and manually fix the verison
+number for the package.

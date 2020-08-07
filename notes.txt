@@ -115,7 +115,20 @@ $ componentWillUnmount-> is called after the component is unmounted from the dom
   This is similar to: const monster=this.state.monster and const searchField=this.state.searchField
 # filter() method returns each object if the function reutnr true
   includes() method check if the provided data includes the parts sent as parameters
-
 # Regular function has its own context and hence it requires to bind (this) when calling
   any variables of Component level; where as arrow function allows this to be the context of
   the Component level and doesnot have to bind this in the constructor.
+  
+=========================================================================================================
+
+# If we ran into error with no-cors issue, we can always use proxy url to bypass that issue and make calls.
+Example:
+	const proxyurl = "https://cors-anywhere.herokuapp.com/"
+    	const url="https://jsonplaceholder.typicode.com/users"
+    	fetch(proxyurl+url).then(******)
+
+  
+  
+  
+  
+  
