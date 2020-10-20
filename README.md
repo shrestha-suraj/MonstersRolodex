@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Demo Web Application
+<image src="./demo.gif"/>
+
+## Description
+Monsoter Rolex is a web application that shows the Reacts search effect into action with state management and api calls using axios libarary.
+
 ## Available Scripts
 
 In the project directory, you can run:
